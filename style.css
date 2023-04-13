@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Lato", sans-serif;
+  }
+  
+  p,
+  a {
+    font-family: "Open Sans", sans-serif;
+  }
+  a{
+    text-decoration: none; 
+    color:black;
+  }
+
+  /* Three ways to do grid span 4, span 1/-1, and grid template areas */
+   
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 50px 200px auto 50px;
+    grid-template-areas: 
+    "header header header header"
+    "slogan slogan slogan slogan"
+    "card-container card-container card-container sidebar"
+    "footer footer footer footer";
+  }
+
+  .header {
+    background-color: aliceblue;
+    /* grid-column: 1/-1; */
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  .header img {
+    width: 30px;
+    height: 30px;
+  }
+
+  nav {
+    display: flex;
+    width: 30%;
+    justify-content: space-between;
+  }
+
+  .slogan {
+    /* background-color: aquamarine; */
+    /* grid-column: span 4; */
+    grid-area: slogan;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-container {
+    /* background-color: blue; */
+    grid-area: card-container;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding-bottom: 30px;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+    justify-content: space-between;
+    border-radius: 15px;
+    box-shadow: 5px 5px 20px pink ;
+    width: 90%;
+    justify-self: center;
+    gap: 10px;
+    /* box-shadow: horizontal, vertical, blur, color; */
+  }
+
+  .card h3, .card p {
+  padding-inline: 20px;
+  }
+
+  .card button {
+    margin-bottom: 20px;
+    align-self: center;
+    border: none;
+    background-color: pink;
+    color: white;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .card img {
+    width: 100%;
+    border-radius: 12px 12px 0px 0px;
+  }
+
+  .sidebar {
+    /* background-color: brown; */
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   justify-content: start;
+   gap: 30px;
+  }
+
+  .sidebar p {
+    padding: 0px 30px;
+  }
+
+  .sidebar img {
+    width: 70%;
+    border-radius: 12px;
+  }
+
+  .social-links {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }
+  i {
+    font-size: 30px;
+    color: pink;
+  }
+  .footer {
+    background-color: aliceblue;
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+      
+  .grid-container {
+    grid-template-rows: 50px 200px auto auto 50px;
+    grid-template-areas: 
+    "header header header header"
+    "slogan slogan slogan slogan"
+    "card-container card-container card-container card-container"
+    "sidebar sidebar sidebar sidebar"
+    "footer footer footer footer";
+  }
+
+  .sidebar img {
+    width: 20%;
+  }
+
+  .social-links{
+    margin-bottom: 30px;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  }
+
+  @media (max-width: 468px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+  }
